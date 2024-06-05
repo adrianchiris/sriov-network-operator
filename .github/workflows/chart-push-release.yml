@@ -22,13 +22,13 @@ jobs:
       - name: update chart
         env:
           GITHUB_TAG: ${{ github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           GITHUB_REPO_OWNER: ${{ github.repository_owner }}
         run: make chart-prepare-release
     
       - name: push chart
         env:
           GITHUB_TAG: ${{ github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           GITHUB_REPO_OWNER: ${{ github.repository_owner }}
         run: make chart-push-release
